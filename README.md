@@ -1,2 +1,0 @@
-# portfolio
-portfolio_nextJs_react_tailwind
