@@ -106,7 +106,7 @@ const ContactCard = (props: {
 const SIDE_PROJECTS: SideProjectsProps[] = [
   {
     Logo: HandCoins,
-    title: "Fiscalis",
+    title: "MyIrpp",
     description: "A simple icon library",
     url: "/",
   },
