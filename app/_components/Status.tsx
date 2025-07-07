@@ -6,19 +6,16 @@ import {
   HandCoins,
   FolderSearch,
   ArrowUpRight,
-  ALargeSmall,
   PiggyBank,
   Waypoints,
 } from "lucide-react";
 import Link from "next/link"; // Assurez-vous que Link est importé depuis next/link
-import Image from "next/image";
-import { title } from "process";
 
 export const Status = () => {
   return (
-    <Section className="flex max-md:flex-col items-start gap-4 w-full">
-      <div className="flex-[3] w-full">
-        <Card className="w-full p-4 flex flex-col gap-2">
+    <Section className="flex w-full items-start gap-4 max-md:flex-col">
+      <div className="w-full flex-[3]">
+        <Card className="flex w-full flex-col gap-2 p-4">
           <p className="text-lg text-muted-foreground">Side, fun projects.</p>
           <div className="flex flex-col gap-4">
             {SIDE_PROJECTS.map((project, index) => (
@@ -33,8 +30,8 @@ export const Status = () => {
           </div>
         </Card>
       </div>
-      <div className="w-full flex-[2] flex flex-col gap-4">
-        <Card className="p-4 flex-1">
+      <div className="flex w-full flex-[2] flex-col gap-4">
+        <Card className="flex-1 p-4">
           <p className="text-lg text-muted-foreground">Work</p>
           <div className="flex flex-col gap-4">
             {WORKS.map((work, index) => (
@@ -49,7 +46,7 @@ export const Status = () => {
             ))}
           </div>
         </Card>
-        <Card className="p-4 flex-1 flex-col gap-1">
+        <Card className="flex-1 flex-col gap-1 p-4">
           <p className="text-lg text-muted-foreground">Contact me</p>
           <ContactCard
             name="@steeventimnou"
@@ -76,17 +73,17 @@ const ContactCard = (props: {
   description: string;
 }) => {
   return (
-    <Card className="p-3 bg-accent/10 hover:bg-accent/30 transition-colors group flex items-center gap-4">
+    <Card className="group flex items-center gap-4 bg-accent/10 p-3 transition-colors hover:bg-accent/30">
       <div className="relative">
         <img
           src={props.image}
           alt={props.name}
-          className="w-10 h-10 rounded-full object-contain"
+          className="h-10 w-10 rounded-full object-contain"
         />
         <img
           src={props.mediumImage}
           alt={props.name}
-          className="w-4 h-4 absolute -bottom-1 -right-1 rounded-full object-contain"
+          className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full object-contain"
         />
       </div>
       <div className="mr-auto">
@@ -96,7 +93,7 @@ const ContactCard = (props: {
         <p className="text-xs text-muted-foreground">{props.description}</p>
       </div>
       <ArrowUpRight
-        className="group-hover:translate-x-2 mr-4 group-hover:translate-y-2 transition-transform"
+        className="mr-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"
         size={16}
       />
     </Card>
@@ -155,9 +152,9 @@ const SideProject = (props: SideProjectsProps) => {
   return (
     <Link
       href={props.url}
-      className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded"
+      className="inline-flex items-center gap-4 rounded p-1 transition-colors hover:bg-accent/50"
     >
-      <span className="bg-accent text-accent-foreground p-3 rounded-sm">
+      <span className="rounded-sm bg-accent p-3 text-accent-foreground">
         <props.Logo />
       </span>
       <div>
@@ -207,12 +204,12 @@ const Work = (props: workProps) => {
   return (
     <Link
       href={props.url}
-      className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded"
+      className="inline-flex items-center gap-4 rounded p-1 transition-colors hover:bg-accent/50"
     >
       <img
         src={props.image}
         alt={props.title}
-        className="w-10 h-10 object-contain rounded-md"
+        className="h-10 w-10 rounded-md object-contain"
       />
       <div className="mr-auto">
         <div className="flex items-center gap-2"></div>

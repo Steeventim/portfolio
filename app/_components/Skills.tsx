@@ -13,7 +13,7 @@ export const Skills = () => {
         {" "}
         I love working on...
       </h2>
-      <div className="flex max-md:flex-col gap-4">
+      <div className="flex gap-4 max-md:flex-col">
         <div className="flex flex-col gap-2">
           <ReactLogo
             size={42}

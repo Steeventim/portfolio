@@ -1,40 +1,117 @@
-# portfolio
+# Portfolio
 
-# portfolio_nextJs_react_tailwind
+Portfolio personnel moderne construit avec Next.js 15, React 19, TypeScript et Tailwind CSS.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🚀 Technologies utilisées
 
-## Getting Started
+- **Next.js 15** - Framework React avec App Router
+- **React 19** - Bibliothèque d'interface utilisateur
+- **TypeScript** - JavaScript typé
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Shadcn/ui** - Composants UI modernes
+- **Lucide React** - Icônes SVG
+- **Geist** - Typographie moderne
 
-First, run the development server:
+## 📦 Installation
+
+1. Cloner le repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Installer les dépendances
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+# ou
+npm install
+# ou
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Scripts disponibles
 
-## Learn More
+```bash
+# Développement
+pnpm dev
 
-To learn more about Next.js, take a look at the following resources:
+# Build de production
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Démarrer en production
+pnpm start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Linting
+pnpm lint
+pnpm lint:fix
 
-## Deploy on Vercel
+# Vérification des types TypeScript
+pnpm type-check
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Nettoyer les fichiers de build
+pnpm clean
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Analyser le bundle
+pnpm analyze
+```
+
+## 🚀 Démarrage rapide
+
+1. Lancer le serveur de développement :
+
+```bash
+pnpm dev
+```
+
+2. Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur
+
+## 📁 Structure du projet
+
+```
+portfolio/
+├── app/                    # App Router de Next.js
+│   ├── _components/       # Composants spécifiques aux pages
+│   ├── fonts/            # Polices personnalisées
+│   ├── globals.css       # Styles globaux
+│   ├── layout.tsx        # Layout principal
+│   └── page.tsx          # Page d'accueil
+├── components/
+│   └── ui/              # Composants UI réutilisables (Shadcn)
+├── lib/
+│   └── utils.ts         # Utilitaires et helpers
+└── ...
+```
+
+## 🎨 Composants
+
+Le projet utilise **Shadcn/ui** pour les composants UI. Les composants disponibles :
+
+- Badge
+- Button
+- Card
+
+## ⚡ Optimisations
+
+- **Images** : Formats AVIF et WebP automatiques
+- **Fonts** : Optimisation automatique avec Geist
+- **Bundle** : Optimisation des imports pour lucide-react et radix-ui
+- **TypeScript** : Configuration stricte pour une meilleure qualité de code
+
+## 🚀 Déploiement
+
+Le projet est optimisé pour un déploiement sur **Vercel** :
+
+1. Connecter votre repository GitHub à Vercel
+2. Le déploiement se fait automatiquement à chaque push
+
+[Déployer sur Vercel](https://vercel.com/new)
+
+## 📝 Contribuer
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/amazing-feature`)
+3. Commit les changements (`git commit -m 'Add amazing feature'`)
+4. Push sur la branche (`git push origin feature/amazing-feature`)
+5. Ouvrir une Pull Request
