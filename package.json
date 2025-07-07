@@ -1,6 +1,7 @@
 {
   "name": "portfolio-projet",
   "version": "0.2.0",
+  "type": "module",
   "description": "Portfolio personnel moderne avec Next.js 15, React 19 et TypeScript",
   "private": true,
   "author": "Your Name",

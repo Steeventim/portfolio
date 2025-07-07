@@ -4,70 +4,34 @@ import { Section } from "./Section";
 import { Quote, Star, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 
-const TESTIMONIALS = [
-  // {
-  //   id: 1,
-  //   name: "Sarah Johnson",
-  //   role: "Product Manager",
-  //   company: "TechCorp Inc.",
-  //   avatar:
-  //     "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-  //   rating: 5,
-  //   content:
-  //     "Steeve delivered exceptional work on our web application. His attention to detail and ability to implement complex features with clean, maintainable code was impressive. The project was completed ahead of schedule.",
-  //   linkedinUrl: "#",
-  //   date: "Mars 2024",
-  // },
-  // {
-  //   id: 2,
-  //   name: "Michael Chen",
-  //   role: "CTO",
-  //   company: "StartupX",
-  //   avatar:
-  //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  //   rating: 5,
-  //   content:
-  //     "Working with Steeve was a game-changer for our team. His expertise in modern web technologies and AI integration helped us build a cutting-edge platform that exceeded our expectations.",
-  //   linkedinUrl: "#",
-  //   date: "Février 2024",
-  // },
-  // {
-  //   id: 3,
-  //   name: "Emma Rodriguez",
-  //   role: "Design Lead",
-  //   company: "Creative Studio",
-  //   avatar:
-  //     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-  //   rating: 5,
-  //   content:
-  //     "Steeve's ability to translate design concepts into pixel-perfect, responsive interfaces is remarkable. His collaborative approach and technical skills made our project a huge success.",
-  //   linkedinUrl: "#",
-  //   date: "Janvier 2024",
-  // },
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  rating: number;
+  content: string;
+  linkedinUrl: string;
+  date: string;
+}
+
+interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  credentialId: string;
+  badge: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  // Commenté temporairement pour éviter les erreurs de build
+  // Décommentez et personnalisez avec vos vrais témoignages
 ];
 
-const CERTIFICATIONS = [
-  // {
-  //   title: "AWS Certified Solutions Architect",
-  //   issuer: "Amazon Web Services",
-  //   date: "2024",
-  //   credentialId: "AWS-CSA-2024-001",
-  //   badge: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-  // },
-  // {
-  //   title: "Google Professional Cloud Developer",
-  //   issuer: "Google Cloud",
-  //   date: "2023",
-  //   credentialId: "GCP-PCD-2023-002",
-  //   badge: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=80&h=80&fit=crop&crop=center"
-  // },
-  // {
-  //   title: "Meta Frontend Developer Professional",
-  //   issuer: "Meta",
-  //   date: "2023",
-  //   credentialId: "META-FED-2023-003",
-  //   badge: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=80&h=80&fit=crop&crop=center"
-  // }
+const CERTIFICATIONS: Certification[] = [
+  // Commenté temporairement pour éviter les erreurs de build  
+  // Décommentez et personnalisez avec vos vraies certifications
 ];
 
 export const Testimonials = () => {

@@ -8,7 +8,6 @@ import {
   HandCoins,
   FolderSearch,
   ArrowUpRight,
-  PiggyBank,
   Waypoints,
   Coffee,
   Calendar,
@@ -18,7 +17,7 @@ import {
   Briefcase,
   TrendingUp,
   Users,
-  Target,
+  Target
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";

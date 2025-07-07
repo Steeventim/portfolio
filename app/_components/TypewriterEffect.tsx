@@ -20,7 +20,6 @@ export const TypewriterEffect = ({
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
     const word = words[currentWordIndex];
