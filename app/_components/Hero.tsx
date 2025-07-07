@@ -6,6 +6,7 @@ import { Code } from "./Code";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Coffee } from "lucide-react";
+import { AdvancedTypewriter } from "./AdvancedTypewriter";
 
 export const Hero = () => {
   return (
@@ -17,15 +18,16 @@ export const Hero = () => {
             Available for work
           </Badge>
         </div>
-        
+
         <div className="space-y-2">
           <h2 className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-4xl font-bold text-transparent">
-            Steeve Timnou
+            Yvan Steeve Timnou Tchuinte
           </h2>
-          <h3 className="text-2xl font-extrabold text-muted-foreground">
-            Software Developer
-          </h3>
           
+          <div className="text-2xl">
+            <AdvancedTypewriter className="justify-start" />
+          </div>
+
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
             <span>Cameroon</span>
@@ -61,10 +63,10 @@ export const Hero = () => {
           .
         </p>
       </div>
-      
+
       <div className="ml-auto flex-[2] max-md:m-auto">
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl"></div>
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl"></div>
           <Image
             src="https://imgs.search.brave.com/Et-roXncdoIl8RN9bBPQG7nP7OS7pf3dnr5c-uvtAkQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/NTExODExNi9mci9w/aG90by9kcmFwZWF1/LWR1LWNhbWVyb3Vu/LndlYnA_YT0xJmI9/MSZzPTYxMng2MTIm/dz0wJms9MjAmYz0w/S20tekJSMmt3cXc4/ZGl3eVZfcnlqZ0lx/RkFXX1lLOERQbkg5/bUd2T0xNPQ"
             width={300}
