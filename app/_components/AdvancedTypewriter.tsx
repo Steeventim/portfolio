@@ -8,33 +8,33 @@ const ROLES = [
   {
     title: "Software Developer",
     icon: <Code className="h-5 w-5 text-blue-500" />,
-    gradient: "from-blue-600 to-purple-600"
+    gradient: "from-blue-600 to-purple-600",
   },
   {
-    title: "Frontend Specialist", 
+    title: "Frontend Specialist",
     icon: <Palette className="h-5 w-5 text-pink-500" />,
-    gradient: "from-pink-600 to-rose-600"
+    gradient: "from-pink-600 to-rose-600",
   },
   {
     title: "React Developer",
     icon: <Zap className="h-5 w-5 text-cyan-500" />,
-    gradient: "from-cyan-600 to-blue-600"
+    gradient: "from-cyan-600 to-blue-600",
   },
   {
     title: "Full Stack Engineer",
     icon: <Cpu className="h-5 w-5 text-green-500" />,
-    gradient: "from-green-600 to-emerald-600"
+    gradient: "from-green-600 to-emerald-600",
   },
   {
     title: "AI Integration Expert",
     icon: <Rocket className="h-5 w-5 text-orange-500" />,
-    gradient: "from-orange-600 to-red-600"
+    gradient: "from-orange-600 to-red-600",
   },
   {
     title: "Web Designer",
     icon: <Globe className="h-5 w-5 text-purple-500" />,
-    gradient: "from-purple-600 to-indigo-600"
-  }
+    gradient: "from-purple-600 to-indigo-600",
+  },
 ];
 
 export const AdvancedTypewriter = ({ className }: { className?: string }) => {
@@ -47,29 +47,32 @@ export const AdvancedTypewriter = ({ className }: { className?: string }) => {
     const currentRole = ROLES[currentIndex];
     const fullText = currentRole.title;
 
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayText.length < fullText.length) {
-          setDisplayText(fullText.slice(0, displayText.length + 1));
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (displayText.length < fullText.length) {
+            setDisplayText(fullText.slice(0, displayText.length + 1));
+          } else {
+            setTimeout(() => setIsDeleting(true), 2500);
+          }
         } else {
-          setTimeout(() => setIsDeleting(true), 2500);
+          if (displayText.length > 0) {
+            setDisplayText(fullText.slice(0, displayText.length - 1));
+          } else {
+            setIsDeleting(false);
+            setCurrentIndex((prev) => (prev + 1) % ROLES.length);
+          }
         }
-      } else {
-        if (displayText.length > 0) {
-          setDisplayText(fullText.slice(0, displayText.length - 1));
-        } else {
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % ROLES.length);
-        }
-      }
-    }, isDeleting ? 50 : 120);
+      },
+      isDeleting ? 50 : 120
+    );
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentIndex]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 530);
 
     return () => clearInterval(cursorInterval);
@@ -84,19 +87,19 @@ export const AdvancedTypewriter = ({ className }: { className?: string }) => {
           {currentRole.icon}
         </div>
       </div>
-      
+
       <div className="flex items-center">
-        <span 
+        <span
           className={cn(
-            "bg-gradient-to-r bg-clip-text text-transparent font-extrabold transition-all duration-500",
+            "bg-gradient-to-r bg-clip-text font-extrabold text-transparent transition-all duration-500",
             currentRole.gradient
           )}
         >
           {displayText}
         </span>
-        <span 
+        <span
           className={cn(
-            "ml-1 inline-block w-0.5 h-7 bg-gradient-to-b from-primary to-secondary transition-opacity duration-150",
+            "ml-1 inline-block h-7 w-0.5 bg-gradient-to-b from-primary to-secondary transition-opacity duration-150",
             showCursor ? "opacity-100" : "opacity-0"
           )}
         />

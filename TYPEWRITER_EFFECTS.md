@@ -5,35 +5,42 @@
 J'ai créé **3 composants différents** d'effets de saisie que vous pouvez utiliser et personnaliser :
 
 ### 1. **AdvancedTypewriter** (Actuellement utilisé)
+
 **Fichier :** `app/_components/AdvancedTypewriter.tsx`
 
 **Caractéristiques :**
+
 - ✨ **Icônes animées** pour chaque rôle
 - 🌈 **Gradients colorés** différents par rôle
 - 📱 **Responsive** et moderne
 - ⚡ **Animations fluides** avec pulse effects
 
 **Rôles inclus :**
+
 - Software Developer (💙 Bleu)
-- Frontend Specialist (💖 Rose)  
+- Frontend Specialist (💖 Rose)
 - React Developer (💙 Cyan)
 - Full Stack Engineer (💚 Vert)
 - AI Integration Expert (🧡 Orange)
 - Web Designer (💜 Violet)
 
-### 2. **SimpleTypewriter** 
+### 2. **SimpleTypewriter**
+
 **Fichier :** `app/_components/SimpleTypewriter.tsx`
 
 **Caractéristiques :**
+
 - 🎯 **Simple et efficace**
 - ⚡ **Léger en performance**
 - 🎨 **Facile à personnaliser**
 - 📝 **Curseur clignotant classique**
 
 ### 3. **TypewriterEffect** (Configurable)
+
 **Fichier :** `app/_components/TypewriterEffect.tsx`
 
 **Caractéristiques :**
+
 - ⚙️ **Hautement configurable**
 - 🎛️ **Vitesses personnalisables**
 - 📝 **Props flexibles**
@@ -42,6 +49,7 @@ J'ai créé **3 composants différents** d'effets de saisie que vous pouvez util
 ## 🛠️ **Comment changer d'effet**
 
 ### Pour utiliser **SimpleTypewriter** :
+
 ```tsx
 // Dans Hero.tsx, remplacez :
 <AdvancedTypewriter className="justify-start" />
@@ -51,14 +59,15 @@ J'ai créé **3 composants différents** d'effets de saisie que vous pouvez util
 ```
 
 ### Pour utiliser **TypewriterEffect** :
+
 ```tsx
 // Dans Hero.tsx, remplacez par :
 <TypewriterEffect
   words={[
     "Software Developer",
-    "Frontend Specialist", 
+    "Frontend Specialist",
     "React Developer",
-    "Full Stack Engineer"
+    "Full Stack Engineer",
   ]}
   typeSpeed={100}
   deleteSpeed={50}
@@ -69,6 +78,7 @@ J'ai créé **3 composants différents** d'effets de saisie que vous pouvez util
 ## 🎨 **Personnalisations possibles**
 
 ### 1. **Ajouter des rôles** dans AdvancedTypewriter :
+
 ```tsx
 // Dans AdvancedTypewriter.tsx, ajoutez dans ROLES :
 {
@@ -79,6 +89,7 @@ J'ai créé **3 composants différents** d'effets de saisie que vous pouvez util
 ```
 
 ### 2. **Modifier les vitesses** :
+
 ```tsx
 // Vitesse de frappe (plus bas = plus rapide)
 setTimeout(() => {}, isDeleting ? 50 : 120);
@@ -88,22 +99,23 @@ setTimeout(() => setIsDeleting(true), 2500);
 ```
 
 ### 3. **Changer les couleurs** :
+
 ```tsx
 // Curseur
-className="bg-gradient-to-b from-primary to-secondary"
+className = "bg-gradient-to-b from-primary to-secondary";
 
 // Texte
-className="bg-gradient-to-r from-blue-600 to-purple-600"
+className = "bg-gradient-to-r from-blue-600 to-purple-600";
 ```
 
 ## 🎯 **Effets recommandés selon l'usage**
 
-| Usage | Effet recommandé | Pourquoi |
-|-------|------------------|----------|
+| Usage                       | Effet recommandé   | Pourquoi                |
+| --------------------------- | ------------------ | ----------------------- |
 | **Portfolio professionnel** | AdvancedTypewriter | Moderne, impressionnant |
-| **Site simple** | SimpleTypewriter | Léger, efficace |
-| **Réutilisable** | TypewriterEffect | Configurable |
-| **Performance critique** | SimpleTypewriter | Moins de ressources |
+| **Site simple**             | SimpleTypewriter   | Léger, efficace         |
+| **Réutilisable**            | TypewriterEffect   | Configurable            |
+| **Performance critique**    | SimpleTypewriter   | Moins de ressources     |
 
 ## 🔧 **Configuration actuelle**
 
@@ -122,13 +134,15 @@ className="bg-gradient-to-r from-blue-600 to-purple-600"
 ## 🎬 **Résultat visuel**
 
 L'effet produit une **animation fluide** où :
+
 1. ✍️ Le texte se tape caractère par caractère
 2. ⏸️ Pause de 2.5 secondes quand le mot est complet
-3. 🗑️ Effacement caractère par caractère  
+3. 🗑️ Effacement caractère par caractère
 4. 🔄 Passage au rôle suivant avec nouvelle couleur/icône
 5. ♾️ Boucle infinie
 
 **Exemple d'animation :**
+
 ```
 Software Developer| (bleu)
 Frontend Specialis|

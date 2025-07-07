@@ -76,3 +76,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Animation de flottement pour le drapeau */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Classe utilitaire pour l'animation de flottement */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}

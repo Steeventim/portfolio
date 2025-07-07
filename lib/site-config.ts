@@ -18,7 +18,7 @@ export const siteConfig = {
     "JavaScript",
     "AI Integration",
     "OpenAI",
-    "Cameroon Developer"
+    "Cameroon Developer",
   ] as string[],
   links: {
     github: "https://github.com/Steeventim",

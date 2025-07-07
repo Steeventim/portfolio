@@ -3,12 +3,14 @@
 ## ✨ Nouvelles fonctionnalités ajoutées
 
 ### 🌙 Mode Sombre (Dark Mode)
+
 - **ThemeToggle** : Bouton pour basculer entre mode clair/sombre
 - **ThemeProvider** : Contexte global pour la gestion des thèmes
 - **Support système** : Détection automatique des préférences utilisateur
 - **Transitions fluides** : Animations lors du changement de thème
 
 ### 📄 Pages et Sections
+
 1. **Hero Section améliorée**
    - Design moderne avec gradients
    - Badge "Available for work" animé
@@ -35,12 +37,14 @@
 ### 🎨 Amélioration du Design
 
 #### Header
+
 - **Glassmorphism** : Effet de flou d'arrière-plan
 - **Sticky positioning** : Header fixe lors du scroll
 - **Border subtile** : Bordure transparente
 - **Z-index optimisé** : Superposition correcte
 
 #### Animations et Transitions
+
 - **Hover effects** : Transformations sur les cartes et boutons
 - **Pulse animations** : Badge "Available for work"
 - **Gradient text** : Titre principal avec dégradé
@@ -49,24 +53,28 @@
 ### 🔧 Améliorations Techniques
 
 #### SEO et Métadonnées
+
 - **Open Graph** : Tags pour réseaux sociaux
 - **Twitter Cards** : Métadonnées pour Twitter
 - **Structured Data** : Informations structurées
 - **Keywords ciblés** : Mots-clés optimisés pour le SEO
 
 #### Performance
+
 - **Images optimisées** : Utilisation de Next.js Image
 - **Lazy loading** : Chargement différé des images
 - **Bundle optimization** : Taille réduite du bundle
 - **Modern formats** : Support AVIF et WebP
 
 #### Accessibilité
+
 - **Screen reader support** : Textes alternatifs
 - **Keyboard navigation** : Navigation au clavier
 - **Contrast ratios** : Ratios de contraste optimaux
 - **Semantic HTML** : Structure HTML sémantique
 
 ### 📱 Responsive Design
+
 - **Mobile-first** : Approche mobile en priorité
 - **Flexible layouts** : Grilles adaptatives
 - **Touch-friendly** : Tailles d'éléments optimisées
@@ -75,6 +83,7 @@
 ### 🛠️ Configuration et Outils
 
 #### Nouvelles dépendances
+
 ```json
 {
   "next-themes": "^0.4.6"
@@ -82,6 +91,7 @@
 ```
 
 #### Scripts améliorés
+
 - `format` : Formatage avec Prettier
 - `type-check` : Vérification TypeScript
 - `lint:fix` : Correction ESLint automatique
@@ -89,16 +99,19 @@
 ## 📊 Métriques d'amélioration
 
 ### Performance
+
 - **Bundle size** : Optimisé pour les performances
 - **First Load JS** : ~124 kB (raisonnable pour les fonctionnalités)
 - **Images** : Formats modernes avec fallbacks
 
 ### SEO
+
 - **Meta tags** : Complets et optimisés
 - **Social sharing** : Ready pour le partage
 - **Structured data** : Données structurées
 
 ### Accessibilité
+
 - **Screen readers** : Support complet
 - **Keyboard navigation** : Navigation complète
 - **Color contrast** : Ratios optimaux
@@ -128,4 +141,5 @@
 8. **Tests** : Tests unitaires et e2e
 
 ---
-*Portfolio modernisé le 7 juillet 2025 par Timnou Steeve*
+
+_Portfolio modernisé le 7 juillet 2025 par Timnou Steeve_

@@ -25,22 +25,25 @@ export const TypewriterEffect = ({
   useEffect(() => {
     const word = words[currentWordIndex];
 
-    const timeout = setTimeout(() => {
-      if (!isDeleting && currentText !== word) {
-        // Typing
-        setCurrentText(word.substring(0, currentText.length + 1));
-      } else if (isDeleting && currentText !== "") {
-        // Deleting
-        setCurrentText(word.substring(0, currentText.length - 1));
-      } else if (!isDeleting && currentText === word) {
-        // Word completed, wait then start deleting
-        setTimeout(() => setIsDeleting(true), delayBetweenWords);
-      } else if (isDeleting && currentText === "") {
-        // Deletion completed, move to next word
-        setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
-      }
-    }, isDeleting ? deleteSpeed : typeSpeed);
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting && currentText !== word) {
+          // Typing
+          setCurrentText(word.substring(0, currentText.length + 1));
+        } else if (isDeleting && currentText !== "") {
+          // Deleting
+          setCurrentText(word.substring(0, currentText.length - 1));
+        } else if (!isDeleting && currentText === word) {
+          // Word completed, wait then start deleting
+          setTimeout(() => setIsDeleting(true), delayBetweenWords);
+        } else if (isDeleting && currentText === "") {
+          // Deletion completed, move to next word
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+      },
+      isDeleting ? deleteSpeed : typeSpeed
+    );
 
     return () => clearTimeout(timeout);
   }, [

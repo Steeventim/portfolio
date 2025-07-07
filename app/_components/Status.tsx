@@ -1,4 +1,6 @@
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
 import {
   BookCheck,
@@ -8,32 +10,156 @@ import {
   ArrowUpRight,
   PiggyBank,
   Waypoints,
+  Coffee,
+  Calendar,
+  MapPin,
+  Clock,
+  CheckCircle,
+  Briefcase,
+  TrendingUp,
+  Users,
+  Target,
 } from "lucide-react";
-import Link from "next/link"; // Assurez-vous que Link est importé depuis next/link
+import Link from "next/link";
+import Image from "next/image";
 
 export const Status = () => {
   return (
-    <Section className="flex w-full items-start gap-4 max-md:flex-col">
-      <div className="w-full flex-[3]">
-        <Card className="flex w-full flex-col gap-2 p-4">
-          <p className="text-lg text-muted-foreground">Side, fun projects.</p>
-          <div className="flex flex-col gap-4">
+    <Section className="flex flex-col gap-8">
+      <div>
+        <Badge variant="outline" className="mb-4">
+          Statut & Disponibilité
+        </Badge>
+        <h2 className="text-3xl font-semibold tracking-tight">
+          Statut professionnel actuel
+        </h2>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Informations sur ma disponibilité, mes projets en cours et mes
+          expériences récentes.
+        </p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        {/* Statut de disponibilité */}
+        <Card className="p-6 lg:col-span-2">
+          <div className="flex items-start gap-4">
+            <div className="rounded-full bg-green-100 p-3 dark:bg-green-900/20">
+              <Coffee className="h-6 w-6 text-green-600" />
+            </div>
+            <div className="flex-1">
+              <div className="mb-2 flex items-center gap-2">
+                <h3 className="text-xl font-semibold">
+                  Disponible pour de nouveaux projets
+                </h3>
+                <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
+              </div>
+              <p className="mb-4 text-muted-foreground">
+                Je suis actuellement ouvert aux nouvelles opportunités et
+                collaborations. Que ce soit pour un projet ponctuel, une mission
+                de consulting ou un poste permanent, n&apos;hésitez pas à me
+                contacter.
+              </p>
+
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="flex items-center gap-2 text-sm">
+                  <Calendar className="h-4 w-4 text-primary" />
+                  <span>Démarrage : Immédiat</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Réponse : Sous 24h</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span>Télétravail / Sur site</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Target className="h-4 w-4 text-primary" />
+                  <span>Mission : 1-12 mois</span>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <Button asChild>
+                  <Link href="#contact">
+                    Discutons de votre projet
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Informations rapides */}
+        <div className="space-y-4">
+          <Card className="p-4">
+            <div className="flex items-center gap-3">
+              <Briefcase className="h-5 w-5 text-primary" />
+              <div>
+                <h4 className="text-sm font-semibold">Expérience</h4>
+                <p className="text-xs text-muted-foreground">3+ années</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-4">
+            <div className="flex items-center gap-3">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              <div>
+                <h4 className="text-sm font-semibold">Projets livrés</h4>
+                <p className="text-xs text-muted-foreground">100% à temps</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-4">
+            <div className="flex items-center gap-3">
+              <TrendingUp className="h-5 w-5 text-blue-600" />
+              <div>
+                <h4 className="text-sm font-semibold">Satisfaction</h4>
+                <p className="text-xs text-muted-foreground">95% clients</p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {/* Projets annexes */}
+        <Card className="p-6">
+          <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <Waypoints className="h-5 w-5" />
+            Projets annexes
+          </h3>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Projets personnels et contributions open-source qui démontrent ma
+            passion pour l&apos;innovation.
+          </p>
+          <div className="space-y-3">
             {SIDE_PROJECTS.map((project, index) => (
               <SideProject
                 key={index}
                 Logo={project.Logo}
                 title={project.title}
                 description={project.description}
-                url="/"
+                url={project.url}
+                status={project.status}
               />
             ))}
           </div>
         </Card>
-      </div>
-      <div className="flex w-full flex-[2] flex-col gap-4">
-        <Card className="flex-1 p-4">
-          <p className="text-lg text-muted-foreground">Work</p>
-          <div className="flex flex-col gap-4">
+
+        {/* Expériences professionnelles */}
+        <Card className="p-6">
+          <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <Users className="h-5 w-5" />
+            Expériences récentes
+          </h3>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Collaborations et missions qui ont façonné mon expertise.
+          </p>
+          <div className="space-y-4">
             {WORKS.map((work, index) => (
               <Work
                 key={index}
@@ -42,61 +168,13 @@ export const Status = () => {
                 role={work.role}
                 date={work.date}
                 url={work.url}
+                description={work.description}
               />
             ))}
           </div>
         </Card>
-        <Card className="flex-1 flex-col gap-1 p-4">
-          <p className="text-lg text-muted-foreground">Contact me</p>
-          <ContactCard
-            name="@steeventimnou"
-            image="https://images.unsplash.com/photo-1733036016861-0541eb76dac5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzOXx8fGVufDB8fHx8fA%3D%3D"
-            mediumImage="https://imgs.search.brave.com/GpB5WQlesvec2MXDXDV3SmKb0pzSJzyH667WAzbxGcs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NhL0xpbmtlZElu/X2xvZ29faW5pdGlh/bHMucG5n"
-            description="16'000"
-          />
-          <ContactCard
-            name="steeve timnou"
-            image="https://images.unsplash.com/photo-1733036016861-0541eb76dac5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzOXx8fGVufDB8fHx8fA%3D%3D"
-            mediumImage="https://imgs.search.brave.com/GpB5WQlesvec2MXDXDV3SmKb0pzSJzyH667WAzbxGcs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NhL0xpbmtlZElu/X2xvZ29faW5pdGlh/bHMucG5n"
-            description="14'000"
-          />
-        </Card>
       </div>
     </Section>
-  );
-};
-
-const ContactCard = (props: {
-  image: string;
-  mediumImage: string;
-  name: string;
-  description: string;
-}) => {
-  return (
-    <Card className="group flex items-center gap-4 bg-accent/10 p-3 transition-colors hover:bg-accent/30">
-      <div className="relative">
-        <img
-          src={props.image}
-          alt={props.name}
-          className="h-10 w-10 rounded-full object-contain"
-        />
-        <img
-          src={props.mediumImage}
-          alt={props.name}
-          className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full object-contain"
-        />
-      </div>
-      <div className="mr-auto">
-        <div className="flex items-center gap-2">
-          <p className="text-lg font-semibold">{props.name}</p>
-        </div>
-        <p className="text-xs text-muted-foreground">{props.description}</p>
-      </div>
-      <ArrowUpRight
-        className="mr-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"
-        size={16}
-      />
-    </Card>
   );
 };
 
@@ -104,63 +182,64 @@ const SIDE_PROJECTS: SideProjectsProps[] = [
   {
     Logo: HandCoins,
     title: "MyIrpp",
-    description: "A simple icon library",
-    url: "/",
+    description: "Calculateur d'impôts intelligent avec IA",
+    url: "https://github.com/Steeventim/myirpp",
+    status: "En production",
   },
   {
     Logo: Unplug,
     title: "Manutencia",
-    description: "A simple icon library",
-    url: "/",
+    description: "Gestionnaire de maintenance prédictive",
+    url: "https://github.com/Steeventim/manutencia",
+    status: "Beta",
   },
   {
     Logo: BookCheck,
     title: "GesActes",
-    description: "A simple icon library",
-    url: "/",
+    description: "Digitalisation de documents administratifs",
+    url: "https://github.com/Steeventim/gesactes",
+    status: "Développement",
   },
   {
     Logo: FolderSearch,
     title: "FSKElastic",
-    description: "A simple icon library",
-    url: "/",
-  },
-  {
-    Logo: Waypoints,
-    title: "ReminderTwilio",
-    description: "A simple icon library",
-    url: "/",
-  },
-  {
-    Logo: PiggyBank,
-    title: "SwitchBank",
-    description: "A simple icon library",
-    url: "/",
+    description: "Moteur de recherche intelligent",
+    url: "https://github.com/Steeventim/fskelastic",
+    status: "Prototype",
   },
 ];
 
 type SideProjectsProps = {
-  Logo: React.ComponentType; // Utilisez React.ComponentType pour le type d'icône
+  Logo: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   url: string;
+  status: string;
 };
 
 const SideProject = (props: SideProjectsProps) => {
-  const titleP = props.title || "Titre par défaut";
-  const descriptionP = props.description || "Description par défaut";
   return (
     <Link
       href={props.url}
-      className="inline-flex items-center gap-4 rounded p-1 transition-colors hover:bg-accent/50"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50"
     >
-      <span className="rounded-sm bg-accent p-3 text-accent-foreground">
-        <props.Logo />
-      </span>
-      <div>
-        <p className="text-lg font-semibold">{titleP}</p>
-        <p className="text-sm text-muted-foreground">{descriptionP}</p>
+      <div className="rounded-md bg-primary/10 p-2">
+        <props.Logo className="h-4 w-4 text-primary" />
       </div>
+      <div className="min-w-0 flex-1">
+        <div className="mb-1 flex items-center gap-2">
+          <p className="truncate text-sm font-medium">{props.title}</p>
+          <Badge variant="secondary" className="text-xs">
+            {props.status}
+          </Badge>
+        </div>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          {props.description}
+        </p>
+      </div>
+      <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
     </Link>
   );
 };
@@ -168,27 +247,33 @@ const SideProject = (props: SideProjectsProps) => {
 const WORKS: workProps[] = [
   {
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZeyqHyrEKm-3RM6TZPy21zp2nylhgPhZTMw&s",
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop&crop=center",
     title: "Afrogeek",
-    role: "Stagiaire",
+    role: "Développeur Stagiaire",
     date: "2019 - 2021",
     url: "https://www.afrogeek.cm",
+    description:
+      "Développement d'applications web et formation aux technologies modernes",
   },
   {
     image:
-      "https://imgs.search.brave.com/SAMoEEbsZ6ydOSIP8huKZiCpmDThqYc2zzh0Ba3OPrg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9i/L2I1L0NvYXRfb2Zf/YXJtc19vZl9DYW1l/cm9vbi5zdmc",
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop&crop=center",
     title: "Mincom",
-    role: "Stagiaire",
+    role: "Consultant IT",
     date: "2021 - 2023",
-    url: "",
+    url: "#",
+    description:
+      "Digitalisation des processus et modernisation des systèmes informatiques",
   },
   {
     image:
-      "https://i0.wp.com/www.cenadi.cm/wp-content/uploads/2023/08/ngomna-app-2.jpeg?fit=500%2C500&ssl=1",
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=100&h=100&fit=crop&crop=center",
     title: "CENADI",
-    role: "Stagiaire",
-    date: "2023 - Present",
-    url: "/",
+    role: "Développeur Full-Stack",
+    date: "2023 - Présent",
+    url: "https://www.cenadi.cm",
+    description:
+      "Développement de solutions numériques pour l'administration publique",
   },
 ];
 
@@ -198,27 +283,36 @@ type workProps = {
   role: string;
   date: string;
   url: string;
+  description: string;
 };
 
 const Work = (props: workProps) => {
   return (
     <Link
       href={props.url}
-      className="inline-flex items-center gap-4 rounded p-1 transition-colors hover:bg-accent/50"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50"
     >
-      <img
-        src={props.image}
-        alt={props.title}
-        className="h-10 w-10 rounded-md object-contain"
-      />
-      <div className="mr-auto">
-        <div className="flex items-center gap-2"></div>
-        <p className="text-lg font-semibold">{props.title}</p>
-
-        <p className="text-xs text-muted-foreground">{props.role}</p>
+      <div className="relative h-10 w-10 flex-shrink-0">
+        <Image
+          src={props.image}
+          alt={props.title}
+          width={40}
+          height={40}
+          className="rounded-md object-cover"
+        />
       </div>
-      <div className="ml-auto">
-        <p className="text-xs text-muted-foreground">{props.date}</p>
+      <div className="min-w-0 flex-1">
+        <div className="mb-1 flex items-center justify-between">
+          <h4 className="text-sm font-medium">{props.title}</h4>
+          <ArrowUpRight className="h-3 w-3 text-muted-foreground transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+        </div>
+        <p className="mb-1 text-xs text-primary">{props.role}</p>
+        <p className="mb-2 text-xs text-muted-foreground">{props.date}</p>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          {props.description}
+        </p>
       </div>
     </Link>
   );

@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 
 const DEVELOPER_ROLES = [
   "Software Developer",
-  "Frontend Specialist", 
+  "Frontend Specialist",
   "React Developer",
   "Full Stack Engineer",
   "AI Integration Expert",
   "Web Designer",
   "Tech Enthusiast",
-  "Problem Solver"
+  "Problem Solver",
 ];
 
 export const SimpleTypewriter = () => {
@@ -20,27 +20,30 @@ export const SimpleTypewriter = () => {
 
   useEffect(() => {
     const currentRole = DEVELOPER_ROLES[currentIndex];
-    
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        // Tape le texte
-        if (currentText.length < currentRole.length) {
-          setCurrentText(currentRole.substring(0, currentText.length + 1));
+
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          // Tape le texte
+          if (currentText.length < currentRole.length) {
+            setCurrentText(currentRole.substring(0, currentText.length + 1));
+          } else {
+            // Attend avant de commencer à effacer
+            setTimeout(() => setIsDeleting(true), 2000);
+          }
         } else {
-          // Attend avant de commencer à effacer
-          setTimeout(() => setIsDeleting(true), 2000);
+          // Efface le texte
+          if (currentText.length > 0) {
+            setCurrentText(currentRole.substring(0, currentText.length - 1));
+          } else {
+            // Passe au role suivant
+            setIsDeleting(false);
+            setCurrentIndex((prev) => (prev + 1) % DEVELOPER_ROLES.length);
+          }
         }
-      } else {
-        // Efface le texte
-        if (currentText.length > 0) {
-          setCurrentText(currentRole.substring(0, currentText.length - 1));
-        } else {
-          // Passe au role suivant
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % DEVELOPER_ROLES.length);
-        }
-      }
-    }, isDeleting ? 50 : 100);
+      },
+      isDeleting ? 50 : 100
+    );
 
     return () => clearTimeout(timeout);
   }, [currentText, currentIndex, isDeleting]);
@@ -48,7 +51,7 @@ export const SimpleTypewriter = () => {
   return (
     <span className="text-2xl font-extrabold text-muted-foreground">
       {currentText}
-      <span className="animate-pulse text-primary ml-1">|</span>
+      <span className="ml-1 animate-pulse text-primary">|</span>
     </span>
   );
 };

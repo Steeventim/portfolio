@@ -23,7 +23,7 @@ export const Hero = () => {
           <h2 className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-4xl font-bold text-transparent">
             Yvan Steeve Timnou Tchuinte
           </h2>
-          
+
           <div className="text-2xl">
             <AdvancedTypewriter className="justify-start" />
           </div>
@@ -35,44 +35,48 @@ export const Hero = () => {
         </div>
 
         <p className="text-base leading-relaxed">
-          I love creating innovative web applications with{" "}
+          Passionate about building innovative web solutions that make a real
+          impact. With expertise in{" "}
           <Link href="#" className="transition-colors hover:text-primary">
             <Code className="inline-flex items-center gap-1">
               <JSicon size={15} className="inline" />
               JavaScript
             </Code>
           </Link>{" "}
-          and modern technologies. Currently working on exciting projects with{" "}
+          and modern frameworks, I create seamless user experiences and
+          integrate{" "}
           <Link href="#" className="transition-colors hover:text-primary">
             <Code className="inline-flex items-center gap-1">
               <Xicon size={15} className="inline" />
-              AI Integration
+              AI technologies
             </Code>
-          </Link>
-          . Passionate about creating seamless user experiences and{" "}
-          <Code className="inline-flex items-center gap-1">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/255px-Flag_of_Cameroon.svg.png"
-              width={15}
-              height={10}
-              alt="Cameroon flag"
-              className="inline-block"
-            />
-            contributing to the tech community
-          </Code>
-          .
+          </Link>{" "}
+          to solve complex problems.
         </p>
+
+        {/* Objectif de carrière selon l'étude */}
+        <div className="rounded-lg border-l-4 border-primary bg-muted/50 p-4">
+          <h4 className="mb-2 text-sm font-semibold text-primary">
+            OBJECTIF PROFESSIONNEL
+          </h4>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Contribuer à des projets innovants en tant que développeur
+            full-stack, en apportant une expertise technique solide et une
+            vision créative pour développer des applications web performantes
+            qui transforment les idées en solutions digitales impactantes.
+          </p>
+        </div>
       </div>
 
       <div className="ml-auto flex-[2] max-md:m-auto">
         <div className="relative">
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl"></div>
           <Image
-            src="https://imgs.search.brave.com/Et-roXncdoIl8RN9bBPQG7nP7OS7pf3dnr5c-uvtAkQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/NTExODExNi9mci9w/aG90by9kcmFwZWF1/LWR1LWNhbWVyb3Vu/LndlYnA_YT0xJmI9/MSZzPTYxMng2MTIm/dz0wJms9MjAmYz0w/S20tekJSMmt3cXc4/ZGl3eVZfcnlqZ0lx/RkFXX1lLOERQbkg5/bUd2T0xNPQ"
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg"
             width={300}
             height={300}
-            alt="Steeve's picture"
-            className="relative z-10 h-auto w-full max-w-xs rounded-2xl border-2 border-primary/20 shadow-2xl transition-transform hover:scale-105 max-md:w-56"
+            alt="Drapeau du Cameroun"
+            className="relative z-10 h-auto w-full max-w-xs rounded-2xl border-2 border-primary/20 shadow-2xl transition-transform hover:scale-105 max-md:w-56 animate-float"
             priority
           />
         </div>

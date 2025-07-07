@@ -22,26 +22,29 @@ export const AnimatedRole = ({ roles, className }: AnimatedRoleProps) => {
     const currentRole = roles[currentIndex];
     const fullText = currentRole.title;
 
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (displayText.length < fullText.length) {
-          setDisplayText(fullText.slice(0, displayText.length + 1));
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          // Typing
+          if (displayText.length < fullText.length) {
+            setDisplayText(fullText.slice(0, displayText.length + 1));
+          } else {
+            // Finished typing, wait then start deleting
+            setTimeout(() => setIsDeleting(true), 2000);
+          }
         } else {
-          // Finished typing, wait then start deleting
-          setTimeout(() => setIsDeleting(true), 2000);
+          // Deleting
+          if (displayText.length > 0) {
+            setDisplayText(fullText.slice(0, displayText.length - 1));
+          } else {
+            // Finished deleting, move to next role
+            setIsDeleting(false);
+            setCurrentIndex((prev) => (prev + 1) % roles.length);
+          }
         }
-      } else {
-        // Deleting
-        if (displayText.length > 0) {
-          setDisplayText(fullText.slice(0, displayText.length - 1));
-        } else {
-          // Finished deleting, move to next role
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, isDeleting ? 50 : 100);
+      },
+      isDeleting ? 50 : 100
+    );
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentIndex, roles]);
@@ -49,7 +52,7 @@ export const AnimatedRole = ({ roles, className }: AnimatedRoleProps) => {
   // Cursor blinking effect
   useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 500);
 
     return () => clearInterval(cursorInterval);
@@ -62,16 +65,16 @@ export const AnimatedRole = ({ roles, className }: AnimatedRoleProps) => {
       {currentRole.icon && (
         <span className="animate-bounce">{currentRole.icon}</span>
       )}
-      <span 
+      <span
         className={cn(
           "font-extrabold transition-colors duration-300",
           currentRole.color || "text-muted-foreground"
         )}
       >
         {displayText}
-        <span 
+        <span
           className={cn(
-            "ml-1 inline-block w-0.5 h-6 bg-primary transition-opacity duration-150",
+            "ml-1 inline-block h-6 w-0.5 bg-primary transition-opacity duration-150",
             showCursor ? "opacity-100" : "opacity-0"
           )}
         />
